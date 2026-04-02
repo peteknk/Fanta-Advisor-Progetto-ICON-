@@ -34,26 +34,26 @@ Senza vincoli adeguati, qualsiasi algoritmo greedy tende a:
 
 Il sistema e organizzato in **tre moduli** interconnessi:
 
-```
-[CSV Statistiche] 
- [Data Cleaning] [MERGE]                     
-[CSV Quotazioni]  
-                            
-            {                 echo ___BEGIN___COMMAND_OUTPUT_MARKER___;                 PS1="";PS2="";unset HISTFILE;                 EC=$?;                 echo "___BEGIN___COMMAND_DONE_MARKER___$EC";             }
-              [Feature Engineering (Indice_Rigorista, ratios)]
-                            
-            {                 echo ___BEGIN___COMMAND_OUTPUT_MARKER___;                 PS1="";PS2="";unset HISTFILE;                 EC=$?;                 echo "___BEGIN___COMMAND_DONE_MARKER___$EC";             }
-                [ML Pipeline per-ruolo (Ridge, RF, GB, MLP)]
- Score_Convenienza
-                            
-            {                 echo ___BEGIN___COMMAND_OUTPUT_MARKER___;                 PS1="";PS2="";unset HISTFILE;                 EC=$?;                 echo "___BEGIN___COMMAND_DONE_MARKER___$EC";             }
-              [Export Prolog facts: giocatore/7]
-                            
-            {                 echo ___BEGIN___COMMAND_OUTPUT_MARKER___;                 PS1="";PS2="";unset HISTFILE;                 EC=$?;                 echo "___BEGIN___COMMAND_DONE_MARKER___$EC";             }
- Vincoli Hard (H1..H6)          [PROLOG CSOP] 
-                            
-            {                 echo ___BEGIN___COMMAND_OUTPUT_MARKER___;                 PS1="";PS2="";unset HISTFILE;                 EC=$?;                 echo "___BEGIN___COMMAND_DONE_MARKER___$EC";             }
-              [Output: Rosa Ottima (3P+8D+8C+6A)]
+```text
+[CSV Statistiche] ──┐
+                    ├──► [MERGE] ──► [Data Cleaning]
+[CSV Quotazioni]  ──┘
+                            │
+                            ▼
+      [Feature Engineering (Indice_Rigorista, ratios)]
+                            │
+                            ▼
+        [ML Pipeline per-ruolo (Ridge, RF, GB, MLP)]
+               Task: Regressione → Score_Convenienza
+                            │
+                            ▼
+            [Export Prolog facts: giocatore/7]
+                            │
+                            ▼
+          [PROLOG CSOP] ─── Vincoli Hard (H1..H6)
+                            │
+                            ▼
+            [Output: Rosa Ottima (3P+8D+8C+6A)]
 ```
 
 ---

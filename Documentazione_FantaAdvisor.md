@@ -2,7 +2,7 @@
 
 **Corso:** Ingegneria della Conoscenza (ICON)  
 **Universita degli Studi di Bari Aldo Moro**  
-**Anno Accademico:** 2024/2025
+**Anno Accademico:** 2025/2026
 
 **Autore:** Pietro Conca  
 **Matricola:** 697870  
